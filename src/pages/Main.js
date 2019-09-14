@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import io from 'socket.io-client';
 //import axios from 'axios';
 import '../css/main.scss';
