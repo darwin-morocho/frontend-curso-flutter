@@ -1,0 +1,38 @@
+#chat {
+  #connected {
+    background-color: rgb(250, 250, 250);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    p {
+      font-weight: bold;
+      padding-bottom: 20px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  #messages {
+    background-color: rgb(240, 239, 239);
+    border-radius: 10px;
+    .message {
+      border-radius: 20px;
+      background-color: #fff;
+      color: #333;
+      padding: 10px 20px;
+      margin: 10px;
+    }
+
+    .message.me {
+      background-color: rgb(30, 195, 236);
+      color: #fff;
+    }
+  }
+
+  .form-control {
+    background-color: #f0f0f0 !important;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+  }
+}
