@@ -3,6 +3,11 @@ import io from 'socket.io-client';
 //import axios from 'axios';
 import '../css/main.scss';
 
+const MSG_TYPE = {
+  text: 'text',
+  image: 'image',
+};
+
 class Main extends React.Component {
   state = {
     connectedUsers: {},
@@ -40,6 +45,7 @@ class Main extends React.Component {
         username: data.from.username,
         createdAt: Date.now(),
         message: data.message,
+        type: data.type,
       };
       this.setState({ inputText: '', messages: messages.concat(newMessage) });
     });
@@ -53,6 +59,7 @@ class Main extends React.Component {
         id: this.id,
         createdAt: Date.now(),
         message: inputText,
+        type: MSG_TYPE.text,
       };
       this.setState({ inputText: '', messages: messages.concat(newMessage) });
     }
@@ -88,7 +95,11 @@ class Main extends React.Component {
                     item.id === this.id ? 'me' : ''
                   }`}
                 >
-                  {item.username && <small className="d-block f-10 ma-bottom-5"><span>@{item.username}</span></small>}
+                  {item.username && (
+                    <small className="d-block f-10 ma-bottom-5">
+                      <span>@{item.username}</span>
+                    </small>
+                  )}
                   {item.message}
                 </div>
               </div>
