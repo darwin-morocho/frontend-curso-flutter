@@ -1,6 +1,6 @@
 # Install 
 
-Run tghe next command to install the dependencies.
+Run the next command to install the dependencies.
 ```
 npm install
 ``` 
