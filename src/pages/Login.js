@@ -1,5 +1,6 @@
 import React from 'react';
 //import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import firebase from '../firebase';
 
 import { withRouter } from 'react-router-dom';
 import * as auth from '../services/auth';
@@ -22,8 +23,25 @@ class Login extends React.Component {
     const { email, password } = this.state;
     const result = await auth.login({ email, password });
     if (result) {
-      localStorage.setItem('sessionKey', result.token);
-      this.props.history.push('/main');
+      firebase
+        .auth()
+        .signInAnonymously()
+        .catch(error => {
+          console.log('firebase auth error', error.message);
+        });
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          // User is signed in.
+          localStorage.setItem('sessionKey', result.token);
+          this.props.history.push('/main');
+          // ...
+        } else {
+          // User is signed out.
+          // ...
+        }
+        // ...
+      });
     }
   };
 

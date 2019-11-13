@@ -1,4 +1,6 @@
-import app from 'firebase/firebase-app';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/storage';
 
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -8,9 +10,9 @@ const config = {
 };
 
 try {
-  app.initializeApp(config);
+  firebase.initializeApp(config);
 } catch (err) {
   console.log('firebase was initialized');
 }
 
-export default app;
+export default firebase;
