@@ -2,6 +2,7 @@ import React from 'react';
 import io from 'socket.io-client';
 //import axios from 'axios';
 import '../css/main.scss';
+import '../firebase';
 
 const MSG_TYPE = {
   text: 'text',
