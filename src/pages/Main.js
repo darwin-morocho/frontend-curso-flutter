@@ -49,7 +49,7 @@ class Main extends React.Component {
         username: data.from.username,
         createdAt: Date.now(),
         message: data.message,
-        type: data.type,
+        type: "text",
       };
       this.setState({ inputText: '', messages: messages.concat(newMessage) });
       this.scrollToBottom();
